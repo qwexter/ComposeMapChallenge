@@ -46,8 +46,10 @@ android {
 
 dependencies {
     implementation(libs.deps.androidx.core.ktx)
-
     implementation(libs.deps.androidx.lifecycle.ktx)
+
+    implementation(libs.deps.material)
+
     implementation(libs.deps.androidx.activity.compose)
 
     implementation(platform(libs.deps.compose.bom))
@@ -56,6 +58,8 @@ dependencies {
     implementation(libs.deps.compose.ui.test.manifest)
     implementation(libs.deps.compose.ui.material)
 
+    implementation(libs.deps.maps.ktx.std)
+    implementation(libs.deps.maps.utils)
     implementation(libs.deps.maps.compose)
     implementation(libs.deps.maps.playservice)
 
