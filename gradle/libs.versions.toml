@@ -1,0 +1,47 @@
+[versions]
+ver-androidx-core = "1.9.0"
+ver-androidx-lifecycle = "2.5.1"
+ver-androidx-activity-compose = "1.6.1"
+ver-kotlin-coroutines = "1.6.4"
+ver-junit = "4.13.2"
+ver-androidx-ext-junit = "1.1.3"
+ver-androidx-test-espresso-core = "3.4.0"
+ver-maps = "3.3.0"
+# plugins versions
+ver-android-gradle-plugin = "7.3.1"
+ver-kotlin-version-plugin = "1.7.20"
+# app settings
+# @keep
+compileSdk = "33"
+minSdk = "28"
+targetSdk = "33"
+compose-compiler = "1.3.2"
+
+[libraries]
+# kotlin / coroutines
+deps-koltin-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "ver-kotlin-version-plugin" }
+# andoridx
+deps-androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "ver-androidx-core" }
+deps-androidx-lifecycle-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "ver-androidx-lifecycle" }
+deps-androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "ver-androidx-activity-compose" }
+# andoridx.compose
+deps-compose-bom = "androidx.compose:compose-bom:2022.10.00"
+deps-compose-ui = { module = "androidx.compose.ui:ui" }
+deps-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+deps-compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest" }
+# androidx.compose.test
+deps-androidx-compose-ui-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4" }
+# material 3
+deps-compose-ui-material = { module = "androidx.compose.material3:material3", version = "1.0.0" }
+# test
+deps-test-junit = { module = "junit:junit", version.ref = "ver-junit" }
+deps-test-compose-ui-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
+# android test
+deps-androidx-ext-junit = { module = "androidx.test.ext:junit", version.ref = "ver-androidx-ext-junit" }
+deps-androidx-test-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "ver-androidx-test-espresso-core" }
+# maps
+deps-maps-compose = { module = "com.google.maps.android:maps-compose", version = "2.7.2" }
+deps-maps-playservice = { module = "com.google.android.gms:play-services-maps", version.require = "18.0.2" }
+# plugins
+android-gradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "ver-android-gradle-plugin" }
+kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "ver-kotlin-version-plugin" }
