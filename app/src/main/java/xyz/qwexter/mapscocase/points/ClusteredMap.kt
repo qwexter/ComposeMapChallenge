@@ -6,17 +6,26 @@ import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.clustering.ClusterManager
 import com.google.maps.android.compose.*
+import kotlinx.coroutines.launch
 import xyz.qwexter.mapscocase.points.mappoints.MapPoint
 import xyz.qwexter.mapscocase.points.mappoints.MarkerProvider
 
 
 @Composable
 fun ClusteredMap(initialCameraPosition: LatLng, markerProvider: MarkerProvider) {
+    val scope = rememberCoroutineScope()
     val markersRemember = remember {
-        mutableStateOf(markerProvider.getMarkerForNearArea(initialCameraPosition))
+        mutableStateOf(emptyList<MapPoint>())
+    }
+    LaunchedEffect(key1 = Unit) {
+        scope.launch {
+            markersRemember.value = markerProvider.getMarkerForNearArea(initialCameraPosition)
+        }
     }
     Map(markers = markersRemember.value, initialCameraPosition) {
-        markersRemember.value = markerProvider.getMarkerForNearArea(it)
+        scope.launch {
+//            markersRemember.value = markerProvider.getMarkerForNearArea(it)
+        }
     }
 }
 

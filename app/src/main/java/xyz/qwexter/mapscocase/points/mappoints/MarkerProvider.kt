@@ -3,5 +3,5 @@ package xyz.qwexter.mapscocase.points.mappoints
 import com.google.android.gms.maps.model.LatLng
 
 interface MarkerProvider {
-    fun getMarkerForNearArea(center: LatLng): List<MapPoint>
+    suspend fun getMarkerForNearArea(cameraPosition: LatLng): List<MapPoint>
 }
