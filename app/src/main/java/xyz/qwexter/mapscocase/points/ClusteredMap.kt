@@ -4,7 +4,9 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.platform.LocalContext
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
+import com.google.maps.android.clustering.ClusterItem
 import com.google.maps.android.clustering.ClusterManager
+import com.google.maps.android.clustering.view.ClusterRenderer
 import com.google.maps.android.compose.*
 import kotlinx.coroutines.launch
 import xyz.qwexter.mapscocase.points.mappoints.MapPoint
@@ -47,7 +49,13 @@ private fun Map(
 
         MapEffect(markers) { map ->
             if (clusterManager == null) {
-                clusterManager = ClusterManager(context, map)
+                clusterManager = ClusterManager<MapPoint>(context, map).apply {
+                    renderer = PointsClusterRenderer(
+                        context,
+                        map,
+                        this as ClusterManager<ClusterItem>
+                    ) as ClusterRenderer<MapPoint>
+                }
             }
             clusterManager?.clearItems()
             clusterManager?.addItems(markers)
